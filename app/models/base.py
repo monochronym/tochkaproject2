@@ -4,7 +4,7 @@ from sqlalchemy import create_engine
 from app.core.config import settings
 
 # Создаем движок SQLAlchemy
-engine = create_engine(settings.DATABASE_URL)
+engine = create_engine(settings.DATABASE_URL, pool_size=20)
 
 # Создаем фабрику сессий
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
